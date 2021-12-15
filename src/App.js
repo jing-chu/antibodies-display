@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Table from './components/Table'
+import FilterForm from './components/FilterForm'
 import axios from 'axios'
 import "./styles.css"
 
@@ -7,6 +8,7 @@ function App() {
 
   const [displayData, setDisplayData] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [fields, setFields] = useState([])
 
 
   function flattenObject(nestObj) {
@@ -26,25 +28,24 @@ function App() {
     return flattendObj;
   }
 
-  // const fetchData = () => {
-  //   return fetch("https://61b32c95af5ff70017ca1d0a.mockapi.io/api/antibodies")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const flattenData = data.map(antibody => flattenObject(antibody))
-  //       console.log(flattenData)
-  //       setDisplayData(flattenData)
-  //     })
-  // }
-
+  function getUnionKeys(flattendObjArr) {
+    const keySet = new Set()
+    for (const obj of flattendObjArr) {
+      for (const key in obj) {
+        keySet.add(key)
+      }
+    }
+    return [...keySet]
+  }
 
   useEffect(() => {
-
     const fetchData = async () => {
       setIsLoading(true)
       const result = await axios('https://61b32c95af5ff70017ca1d0a.mockapi.io/api/antibodies')
       const flattenData = result.data.map(antibody => flattenObject(antibody))
       console.log(flattenData)
       setDisplayData(flattenData)
+      setFields(getUnionKeys(flattenData))
       setIsLoading(false)
     }
     fetchData()
@@ -53,13 +54,20 @@ function App() {
   return (
     <>
       <h1 className="table-name">Antibody Info</h1>
+
       {
         isLoading ? (<div>Loading...</div>) :
-          (<Table data={displayData} />)
+          (
+            <>
+              <FilterForm fieldsName={fields} />
+              <hr />
+              <Table data={displayData} fieldsName={fields} />
+            </>
+          )
       }
 
     </>
   )
 }
-//   
+
 export default App;

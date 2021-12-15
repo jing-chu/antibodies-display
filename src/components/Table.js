@@ -2,39 +2,38 @@
 import "../styles.css"
 
 function Header({ headerData }) {
-  if (headerData === undefined) {
-    return []
-  }
-  const keys = Object.keys(headerData)
-  return keys.map((key) => {
+  return headerData.map((key) => {
     return <th key={key}>{key.toUpperCase()}</th>
   })
 }
 
-function Row({ objRow }) {
-  const values = Object.values(objRow)
-  return values.map((value, index) => {
-    return <td key={index}>{value}</td>
+function Row({ objRow, fieldsName }) {
+  return fieldsName.map((field, index) => {
+    if (objRow[field] === undefined) {
+      return <td key={index}></td>
+    } else {
+      return <td key={index}>{objRow[field]}</td>
+    }
   })
 }
 
-function Body({ bodyData }) {
+function Body({ bodyData, fieldsName }) {
   return bodyData.map((row, index) => {
-    return <tr key={index}><Row key={index} objRow={row} /></tr>
+    return <tr key={index}><Row key={index} objRow={row} fieldsName={fieldsName} /></tr>
   })
 }
 
-export default function Table({ data }) {
+export default function Table({ data, fieldsName }) {
   return (
     <>
       <table className="antibody-table">
         <thead>
           <tr>
-            <Header headerData={data[0]} />
+            <Header headerData={fieldsName} />
           </tr>
         </thead>
         <tbody>
-          <Body bodyData={data} />
+          <Body bodyData={data} fieldsName={fieldsName} />
         </tbody>
       </table>
     </>
