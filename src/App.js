@@ -6,6 +6,8 @@ import "./styles.css"
 function App() {
 
   const [displayData, setDisplayData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
 
   function flattenObject(nestObj) {
     const flattendObj = {};
@@ -36,11 +38,14 @@ function App() {
 
 
   useEffect(() => {
+
     const fetchData = async () => {
+      setIsLoading(true)
       const result = await axios('https://61b32c95af5ff70017ca1d0a.mockapi.io/api/antibodies')
       const flattenData = result.data.map(antibody => flattenObject(antibody))
       console.log(flattenData)
       setDisplayData(flattenData)
+      setIsLoading(false)
     }
     fetchData()
   }, [])
@@ -48,7 +53,11 @@ function App() {
   return (
     <>
       <h1 className="table-name">Antibody Info</h1>
-      <Table data={displayData} />
+      {
+        isLoading ? (<div>Loading...</div>) :
+          (<Table data={displayData} />)
+      }
+
     </>
   )
 }
