@@ -1,3 +1,5 @@
+
+/*
 export const antibodiesData = [
   { "id": 1, "barcode": "0001", "name": "CD4", "synonym": "T4", "gene": "Cd4", "clone": "RM4-5", "sequence": "AACAAGACCCTTGAG", "type_id": 4, "type": { "id": 4, "name": "ADT", "category": "A" }, "reactivity": [{ "species": "Mouse", "pivot": { "antibody_id": 1, "reactivity_id": 2 } }] },
   { "id": 2, "barcode": "0002", "name": "CD8a", "synonym": "T8", "gene": "Cd8a", "clone": "53-6.7", "sequence": "TACCCGTAATAGCGT", "type_id": 4, "type": { "id": 4, "name": "ADT", "category": "A" }, "reactivity": [{ "species": "Mouse", "pivot": { "antibody_id": 2, "reactivity_id": 2 } }] },
@@ -29,5 +31,5 @@ export const flattedData = antibodiesData.map(antibody => {
 
 console.log(flattedData)
 
-
+*/
 
