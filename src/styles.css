@@ -2,6 +2,30 @@
   display: flex;
   flex-direction: row;
 }
+
+hr {
+  border-top: 1px solid #ddd;
+}
+
+/*filter-form*/
+.filter-form {
+  margin: 1rem;
+  width: 26rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*sort-form*/
+.sort-form {
+  margin: 1rem;
+  width: 26rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*Table styling*/
 .table-name {
   margin-left: 1rem;
   color: rgb(58, 187, 186);
@@ -17,7 +41,7 @@
 .antibody-table td,
 .customers th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 3px;
 }
 
 .antibody-table tr:nth-child(even) {
@@ -35,21 +59,3 @@
   background-color: rgb(27, 41, 68);
   color: rgb(255, 104, 30);
 }
-
-/*
-thead {
-  color: green;
-}
-tbody {
-  color: blue;
-}
-table,
-th,
-td {
-  border: 1px solid black;
-}
-td,
-th {
-  padding: 5px;
-}
-*/
