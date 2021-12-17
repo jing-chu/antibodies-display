@@ -58,20 +58,21 @@ function App() {
 
   return (
     <>
-      <h1 className="table-name">Antibody Info</h1>
-      {
-        isLoading ? (<div>Loading...</div>) :
-          (
-            <>
-              <FilterForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
-              <br />
-              <SortForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
-              <hr />
-              <Table data={renderData} fieldsName={fields} />
-            </>
-          )
-      }
-
+      <div class="forms-container">
+        <h1 className="table-name">Antibody Info</h1>
+        {
+          isLoading ? (<div>Loading...</div>) :
+            (
+              <>
+                <FilterForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
+                <br />
+                <SortForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
+                <hr />
+                <Table data={renderData} fieldsName={fields} />
+              </>
+            )
+        }
+      </div>
     </>
   )
 }
