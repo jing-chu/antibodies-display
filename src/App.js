@@ -57,23 +57,27 @@ function App() {
   const renderData = renderIndex.map(i => displayData[i])
 
   return (
-    <>
-      <div class="forms-container">
-        <h1 className="table-name">Antibody Info</h1>
-        {
-          isLoading ? (<div>Loading...</div>) :
-            (
-              <>
+
+    <div class="container">
+      <h1 className="table-name">Antibody Info</h1>
+      {
+        isLoading ? (<div>Loading...</div>) :
+          (
+            <>
+              <div className="forms-container">
                 <FilterForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
                 <br />
                 <SortForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
                 <hr />
+              </div>
+              <div className="table-container">
                 <Table data={renderData} fieldsName={fields} />
-              </>
-            )
-        }
-      </div>
-    </>
+              </div>
+            </>
+          )
+      }
+    </div>
+
   )
 }
 

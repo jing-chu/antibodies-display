@@ -14,7 +14,7 @@ export default function FilterForm({ fieldsName, data, renderIndex, onRenderInde
     setFilterBtn('Filter in Results')
   }
 
-  function handleOnClick() {
+  function handleReset() {
     onRenderIndex([...Array(data.length).keys()])
     setFilterWord('')
     setSelectField(fieldsName[0])
@@ -31,7 +31,7 @@ export default function FilterForm({ fieldsName, data, renderIndex, onRenderInde
       </select>
       <input type="text" name="filterWord" placeholder="filter" value={filterWord} onChange={e => { setFilterWord(e.target.value) }} />
       <input type="submit" value={filterBtn} />
-      <input type="button" value="Reset" onClick={handleOnClick} />
+      <input type="button" value="Reset" onClick={handleReset} />
     </form>
   )
 }

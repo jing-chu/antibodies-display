@@ -1,6 +1,18 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
 .app {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 100%;
+}
+
+.forms-container {
+  height: 100px;
 }
 
 hr {
@@ -13,7 +25,7 @@ hr {
   color: rgb(58, 187, 186);
 }
 
-.forms-container {
+.container {
   width: 95vw;
   margin: auto;
 }
@@ -39,16 +51,12 @@ hr {
 .table-container {
   overflow-x: auto;
   overflow-y: auto;
-  width: 95vw;
-  height: 60vh;
-  margin: auto;
+  height: 80vh;
 }
 
 .antibody-table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-
-  width: 100%;
 }
 
 .antibody-table td {
@@ -71,4 +79,6 @@ hr {
   background-color: rgb(27, 41, 68);
   color: rgb(255, 104, 30);
   padding: 5px;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
 }

@@ -26,16 +26,14 @@ function Body({ bodyData, fieldsName }) {
 export default function Table({ data, fieldsName }) {
   return (
     <>
-      <div className="table-container">
-        <table className="antibody-table">
-          <thead>
-            <Header headerData={fieldsName} />
-          </thead>
-          <tbody>
-            <Body bodyData={data} fieldsName={fieldsName} />
-          </tbody>
-        </table>
-      </div>
+      <table className="antibody-table">
+        <thead>
+          <Header headerData={fieldsName} />
+        </thead>
+        <tbody>
+          <Body bodyData={data} fieldsName={fieldsName} />
+        </tbody>
+      </table>
     </>
   )
 }
