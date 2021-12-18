@@ -36,7 +36,7 @@ export default function FilterForm({
   function handleReset() {
     onRenderIndex([...Array(data.length).keys()])
     setFilterWord('')
-    setSelectField(fieldsName[0])
+    //setSelectField(fieldsName[0])
     setFilterBtn('Filter')
     onDisabled(true)
   }
