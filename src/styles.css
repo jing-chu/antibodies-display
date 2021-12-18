@@ -30,12 +30,20 @@ hr {
   margin: auto;
 }
 
+.sort-counter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 1.5rem;
+}
+
 /*filter-form*/
 .filter-form {
   width: 26rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 1.5rem;
 }
 
 /*sort-form*/

@@ -11,6 +11,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [fields, setFields] = useState([])
   const [renderIndex, setRenderIndex] = useState([])
+  const [isDisabled, setIsDisabled] = useState(true)
+
 
 
   function flattenObject(nestObj) {
@@ -65,9 +67,25 @@ function App() {
           (
             <>
               <div className="forms-container">
-                <FilterForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
+                <FilterForm
+                  fieldsName={fields}
+                  data={displayData}
+                  renderIndex={renderIndex}
+                  onRenderIndex={setRenderIndex}
+                  isDisabled={isDisabled}
+                  onDisabled={setIsDisabled}
+                />
                 <br />
-                <SortForm fieldsName={fields} data={displayData} renderIndex={renderIndex} onRenderIndex={setRenderIndex} />
+                <div className="sort-counter-container">
+                  <SortForm
+                    fieldsName={fields}
+                    data={displayData}
+                    renderIndex={renderIndex}
+                    onRenderIndex={setRenderIndex}
+                  />
+                  <p>Total Records: {renderIndex.length}</p>
+                </div>
+
                 <hr />
               </div>
               <div className="table-container">
